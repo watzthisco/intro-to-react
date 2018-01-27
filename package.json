@@ -1,0 +1,29 @@
+{
+  "name": "intro-to-react",
+  "version": "1.0.0",
+  "description": "Labs for Introduction to React by Chris Minnick",
+  "engines": {
+    "node": "4.4.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "version": "node version-check.js",
+    "pretest": "npm run version",
+    "test": "echo \"All Tests Passed\" && exit 0",
+    "build": "echo \"BUILD OK\" && exit 0",
+    "prebuild": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watzthisco/intro-to-react.git"
+  },
+  "author": "Chris Minnick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/watzthisco/intro-to-react/issues"
+  },
+  "homepage": "https://github.com/watzthisco/intro-to-react#readme",
+  "devDependencies": {
+    "semver": "^5.5.0"
+  }
+}
