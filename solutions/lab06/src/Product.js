@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Product.css.js';
 
 class Product extends React.Component{
     render(){
         return(
-            <div>
+            <div style={styles.product}>
                 <div>Image Here</div>
                 <div>
                     <h2>Title</h2>
