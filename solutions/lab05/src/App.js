@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Cart from './Cart';
+import ProductList from './ProductList';
 
-class App extends Component {
-  render() {
+function App() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div>
+            <header>
+                <div>
+                    <h1>Welcome to React Bookstore</h1>
+                </div>
+            </header>
+            <div>
+                <div>
+                    <ProductList/>
+                </div>
+                <div>
+                    <Cart/>
+                </div>
+            </div>
+            <footer>
+            </footer>
+        </div>
     );
-  }
 }
 
 export default App;
