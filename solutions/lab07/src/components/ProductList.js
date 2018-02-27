@@ -6,16 +6,11 @@ class ProductList extends React.Component{
     render(){
         return(
             <ul style={styles.productList}>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
-                <li style={styles.productListItem}><Product /></li>
+                {this.props.products.map(product => (
+                    <li key={product.id} style={styles.productListItem}>
+                        <Product {...product} />
+                    </li>
+                ))}
             </ul>
         );
     }
