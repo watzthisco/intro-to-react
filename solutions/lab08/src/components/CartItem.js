@@ -5,7 +5,7 @@ class CartItem extends React.Component{
     render(){
         return(
             <div style={styles.cartItem}>
-                <p>Item</p>
+                {this.props.title} - {this.props.price}
             </div>
         );
     }

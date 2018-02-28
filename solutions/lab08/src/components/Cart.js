@@ -3,14 +3,22 @@ import CartItem from './CartItem';
 import styles from './Cart.css.js';
 
 class Cart extends React.Component{
+
+    calculateTotal(items){
+        let total = 0;
+        for (let i = 0; i<items.length; i++) {
+            total += Number(items[i].price);
+        }
+        return total;
+    }
     render(){
         return(
             <div style={styles.cart}>
                 <h2>Cart</h2>
-                {this.props.item.map(item=>(
-                    <CartItem itemId={item}/>
+                {this.props.inCart.map(item=>(
+                    <CartItem key={item.id} {...item} />
                 ))}
-                Total: $x USD
+                Total: ${this.calculateTotal(this.props.inCart)} USD
             </div>
         );
     }

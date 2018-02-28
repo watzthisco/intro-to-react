@@ -10,7 +10,16 @@ class App extends React.Component {
             items:["1","3","5"]
         }
     }
+
+    getProduct(products, item) {
+        return products.find(product => item === product.id);
+    }
+
+
     render() {
+
+        let items = this.state.items.map(id => this.getProduct(productsData,id));
+
         return (
             <div className="container">
                 <header className="row">
@@ -23,7 +32,7 @@ class App extends React.Component {
                         <ProductList products={productsData} inCart={this.state.items}/>
                     </div>
                     <div className="col-md-4">
-                        <Cart inCart={this.state.items}/>
+                        <Cart inCart={items}/>
                     </div>
                 </div>
                 <footer>
