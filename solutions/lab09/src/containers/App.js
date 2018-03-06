@@ -7,20 +7,29 @@ class App extends React.Component {
     constructor(){
         super();
         this.state={
-            items:["1","3","5"]
-        }
+            items:[]
+        };
+        this.addToCart = this.addToCart.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
     }
 
     getProduct(products, item) {
         return products.find(product => item === product.id);
     }
 
-    addToCart(id) {
-        let newItems = [...this.state.items, id];
+    addToCart(idToAdd) {
+        let newItems = [...this.state.items, idToAdd];
         this.setState({
             items: newItems
-        })
+        });
     }
+
+    removeFromCart(idToRemove) { 
+        let newItems = this.state.items.filter( 
+            id => id !== idToRemove); 
+        this.setState({items: newItems});
+    }
+
 
 
     render() {
@@ -36,7 +45,7 @@ class App extends React.Component {
                 </header>
                 <div className="row">
                     <div className="col-md-8">
-                        <ProductList products={productsData} inCart={this.state.items}/>
+                        <ProductList addToCart = {this.addToCart} removeFromCart = {this.removeFromCart} products={productsData} inCart={this.state.items}/>
                     </div>
                     <div className="col-md-4">
                         <Cart inCart={items}/>

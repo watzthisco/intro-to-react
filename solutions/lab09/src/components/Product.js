@@ -3,8 +3,15 @@ import styles from './Product.css.js';
 
 class Product extends React.Component{
 
+    handleClick(){
+        if(this.props.inCart) {
+            this.props.removeFromCart(this.props.id);
+        } else {
+            this.props.addToCart(this.props.id);
+        }
+    }
     render(){
-        const { title, author, published, country, lang, pages, image, url, price } = this.props;
+        const {title, author, published, country, lang, pages, image, url, price } = this.props;
 
         return(
                 <div style={styles.product}>
@@ -16,7 +23,7 @@ class Product extends React.Component{
                         <div>Language: {lang}</div>
                         <div>Pages: {pages}</div>
                         <div>Price: ${price}</div>
-                        <button>{this.props.inCart?"In Cart":"Add to Cart"}</button>
+                        <button onClick={this.handleClick.bind(this)}>{this.props.inCart?"In Cart":"Add to Cart"}</button>
                     </div>
                 </div>
             );

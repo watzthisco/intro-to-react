@@ -9,7 +9,11 @@ class ProductList extends React.Component{
             <ul style={styles.productList}>
                 {this.props.products.map(product => (
                     <li key={product.id} style={styles.productListItem}>
-                        <Product {...product} inCart = {inCart.includes(product.id)?'1':''} />
+                        <Product {...product}
+                                 inCart = {inCart.includes(product.id)?'1':''}
+                                 addToCart={this.props.addToCart}
+                                 removeFromCart={this.props.removeFromCart}
+                        />
                     </li>
                 ))}
             </ul>
