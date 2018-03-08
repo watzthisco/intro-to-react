@@ -1,9 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import {shallow} from 'enzyme';
+
+let component;
+
+beforeEach(() => {
+    component = shallow(<App />);
+});
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+    expect(component.text()).toEqual('Welcome to React Bookstore<ProductList /><Cart />');
 });

@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ProductList from './ProductList';
+import {shallow} from 'enzyme';
+
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ProductList />, div);
-  ReactDOM.unmountComponentAtNode(div);
+    const component = shallow(<ProductList products = {[]} />);
+    expect(component.text()).toEqual('');
 });

@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Product from './Product';
+import {shallow} from 'enzyme';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Product />, div);
-  ReactDOM.unmountComponentAtNode(div);
+    const component = shallow(<Product title="Test" />);
+    expect(component.text()).toEqual('Testby: Published: , Language: Pages: Price: $Add to Cart');
 });
