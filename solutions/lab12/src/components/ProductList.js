@@ -23,10 +23,10 @@ class ProductList extends React.Component{
 }
 
 ProductList.propTypes = {
-    addToCart: PropTypes.func.isRequired,
-    removeFromCart: PropTypes.func.isRequired,
-    products: PropTypes.array.isRequired,
-    inCart: PropTypes.array.isRequired
+    addToCart: PropTypes.func,
+    removeFromCart: PropTypes.func,
+    products: PropTypes.array,
+    inCart: PropTypes.array
 };
 
 export default ProductList;
