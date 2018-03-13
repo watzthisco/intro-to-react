@@ -1,4 +1,4 @@
-function cart(state = [], action = {}) {
+export function cart(state = {}, action = {}) {
     switch(action.type) {
         case 'CART_ADD':
             console.log('adding');
@@ -17,4 +17,9 @@ function cart(state = [], action = {}) {
     }
 }
 
-export default cart;
+        export function products(state = {}, action = {}) {
+            switch (action.type) {
+                default:
+                    return state; //no relevant action type 
+            }
+        }

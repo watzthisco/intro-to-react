@@ -1,29 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+import {createStore, combineReducers, bindActionCreators} from 'redux';
+import {Provider, connect} from 'react-redux';
+import productsData from './data/products';
+import {cart, products} from './reducers';
+import * as actionCreators from './actions/';
 import './index.css';
 import App from './containers/App';
 import 'bootstrap/dist/css/bootstrap.css';
-import {createStore, combineReducers} from 'redux';
-import cartReducer from './reducers/cartReducer';
-import productsReducer from './reducers/productsReducer';
-import productsData from './data/products';
 
 const rootReducer = combineReducers({
-    cart: cartReducer,
-    products: productsReducer
+    cart: cart,
+    products: products
 });
 
 const initialState = {
     cart: {items:[]},
     products: productsData
 };
-console.log("initial items: " + initialState.cart.items);
-console.log("initial products: " + initialState.products);
+
 let store = createStore(
     rootReducer,
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+const mapStateToProps = (state, props) => {
+    console.log("state" + state.cart.items);
+    return {
+        items: state.cart.items,
+        products: state.products
+
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch);
+};
+
+let ReduxApp = connect(mapStateToProps, mapDispatchToProps)(App);
+
+ReactDOM.render(<Provider store={store}><ReduxApp /></Provider>, document.getElementById('root'));
