@@ -26,7 +26,6 @@ let store = createStore(
 );
 
 const mapStateToProps = (state, props) => {
-    console.log("state" + state.cart.items);
     return {
         items: state.cart.items,
         products: state.products

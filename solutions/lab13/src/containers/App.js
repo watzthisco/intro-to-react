@@ -52,7 +52,7 @@ class App extends React.Component {
                                      products={this.sortedProducts} inCart={this.props.items}/>
                     </div>
                     <div className="col-md-4">
-                        <Cart inCart={items}/>
+                        <Cart removeFromCart={this.props.removeFromCart} inCart={items}/>
                     </div>
                 </div>
                 <footer>

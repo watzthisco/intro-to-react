@@ -17,7 +17,7 @@ class Cart extends React.Component{
             <div style={styles.cart}>
                 <h2>Cart</h2>
                 {this.props.inCart.map(item=>(
-                    <CartItem key={item.id} {...item} />
+                    <CartItem removeFromCart = {this.props.removeFromCart} key={item.id} {...item} />
                 ))}
                 Total: ${this.calculateTotal(this.props.inCart)} USD
             </div>

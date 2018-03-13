@@ -1,7 +1,6 @@
 export function cart(state = {}, action = {}) {
     switch(action.type) {
         case 'CART_ADD':
-            console.log('adding');
             return {
                 ...state,
                 items: [ ...state.items, action.payload.productId ]
