@@ -4,9 +4,10 @@ import styles from './Cart.css.js';
 import PropTypes from 'prop-types';
 
 class Cart extends React.Component{
-    handleSubmitCart(){
+
+    handleSubmitCart(){ 
         this.props.submitCart(this.props.inCart);
-    }
+     }
 
     calculateTotal(items){
         let total = 0;
@@ -23,7 +24,10 @@ class Cart extends React.Component{
                     <CartItem removeFromCart = {this.props.removeFromCart} key={item.id} {...item} />
                 ))}
                 Total: ${this.calculateTotal(this.props.inCart)} USD
-                <div><button onClick={this.handleSubmitCart.bind(this)}>Check Out</button></div>
+                <div><button onClick={this.handleSubmitCart.bind(this)}>
+                    Check Out
+                </button></div>
+
             </div>
         );
     }

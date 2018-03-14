@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {createStore, combineReducers, bindActionCreators, applyMiddleware, compose} from 'redux';
 import {Provider, connect} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
-
 import productsData from './data/products';
 import {cart, products} from './reducers';
 import * as actionCreators from './actions/';
@@ -17,18 +16,16 @@ const rootReducer = combineReducers({
 });
 
 const initialState = {
-    cart: {items:[]},
+    cart: {items: []},
     products: productsData
 };
 
-const createStoreWithMiddleware =
-    compose( applyMiddleware(ReduxThunk) )(createStore);
-
+const createStoreWithMiddleware = compose(applyMiddleware(ReduxThunk))(createStore);
 let store = createStoreWithMiddleware(
     rootReducer,
     initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 const mapStateToProps = (state, props) => {
     return {

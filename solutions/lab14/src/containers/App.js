@@ -1,6 +1,7 @@
 import React from 'react';
 import Cart from '../components/Cart';
 import ProductList from '../components/ProductList';
+//import productsData from '../data/products';
 
 class App extends React.Component {
     constructor() {
@@ -51,7 +52,9 @@ class App extends React.Component {
                                      products={this.sortedProducts} inCart={this.props.items}/>
                     </div>
                     <div className="col-md-4">
-                        <Cart removeFromCart={this.props.removeFromCart} submitCart = {this.props.submitCart} inCart={items}/>
+                        <Cart removeFromCart={this.props.removeFromCart}
+                              submitCart = {this.props.submitCart}
+                              inCart={items} />
                     </div>
                 </div>
                 <footer>

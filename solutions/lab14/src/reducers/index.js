@@ -10,11 +10,12 @@ export function cart(state = {}, action = {}) {
                 ...state,
                 items: state.items.filter(id => id !== action.payload.productId)
             };
-        case 'CHECKOUT':
-            return {
-                ...state,
-                items: []
+        case 'CHECKOUT': 
+            return { 
+                ...state, 
+                items: [] 
             };
+
         default:
             return state; //no relevant action type
     }
