@@ -1,7 +1,7 @@
 import React from 'react';
 import Cart from '../components/Cart';
 import ProductList from '../components/ProductList';
-import productsData from '../data/products';
+import myData from '../data/products';
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             </header>
             <div className="row">
                 <div className="col-md-8">
-                    <ProductList products={productsData} />
+                    <ProductList products={myData} />
                 </div>
                 <div className="col-md-4">
                     <Cart/>
