@@ -21,6 +21,7 @@ const initialState = {
 };
 
 const createStoreWithMiddleware = compose(applyMiddleware(ReduxThunk))(createStore);
+
 let store = createStoreWithMiddleware(
     rootReducer,
     initialState,
