@@ -1,13 +1,13 @@
 import React from 'react';
 import Cart from '../components/Cart';
 import ProductList from '../components/ProductList';
-import productsData from '../data/products';
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            items: []
+            items: [],
+            products: []
         };
 
         this.addToCart = this.addToCart.bind(this);
@@ -15,9 +15,14 @@ class App extends React.Component {
         this.sortedProducts = [];
     }
 
-    componentWillMount(){
-        this.sortedProducts = this.shuffleArray(productsData);
-    }
+    componentDidMount() {
+        fetch('http://localhost:3000/data/products.json')
+            .then(response => response.json()
+                .then(products => this.shuffleArray(products))
+                .then(products => {
+                    this.setState({products:products})
+                }))
+    };
 
     getProduct(products, item) {
         return products.find(product => item === product.id);
@@ -53,7 +58,7 @@ class App extends React.Component {
 
     render() {
 
-        let items = this.state.items.map(id => this.getProduct(productsData, id));
+        let items = this.state.items.map(id => this.getProduct(this.state.products, id));
 
         return (
             <div className="container">
@@ -65,7 +70,7 @@ class App extends React.Component {
                 <div className="row">
                     <div className="col-md-8">
                         <ProductList addToCart={this.addToCart} removeFromCart={this.removeFromCart}
-                                     products={this.sortedProducts} inCart={this.state.items}/>
+                                     products={this.state.products} inCart={this.state.items}/>
                     </div>
                     <div className="col-md-4">
                         <Cart inCart={items}/>
