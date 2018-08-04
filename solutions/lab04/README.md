@@ -1,8 +1,7 @@
-# Lab15 - Persisting data in localStorage using Redux and displaying it in React
-Solution to lab 15 from Intro to React, by Chris Minnick
+# Lab04 - Testing React
+Solution to lab 4 from Intro to React, by Chris Minnick
 
 To get started, run npm install inside this folder.
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

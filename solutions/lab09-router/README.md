@@ -1,3 +1,8 @@
+# Lab09 - Interactions, Events, and Callbacks and Routing
+This is an optional extension or demo that adds routing to lab 9 using React Router.
+
+To get started, run npm install inside this folder.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

@@ -1,3 +1,9 @@
+# Lab11 - PropTypes
+Solution to lab 11 from Intro to React, by Chris Minnick
+
+To get started, run npm install inside this folder.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
